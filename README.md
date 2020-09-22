@@ -25,7 +25,7 @@ will get you one for free)
 
 ## Usage
 
-1. Set up your configuration in [terraform.tfvars](#vars)
+1. Set up your configuration in `terraform.tfvars`
 
 1. Run `terraform init`
 
@@ -35,7 +35,7 @@ will get you one for free)
 
 1. Test you new service
 
-## <a name="#vars"></a>Configuration in terraform.tfvars
+## Configuring terraform.tfvars
 
 The Terraform variables file `terraform.tfvars` is used to configure your
 installation.
@@ -52,7 +52,7 @@ system="reshuffle"
 These parameters describe your system and AWS environment. If you are using
 AWS Route 53 as your DNS server on this domain, you can add
 
-## DNS configuration
+### DNS configuration
 
 ```
 zoneid="<route-53-zone-id>"
@@ -67,7 +67,7 @@ If you are not using Route 53, leave out `zoneid`. Terraform will print out
 the load balancer domain name when it's done so you can configure the alias
 yourself in your DNS server.
 
-## Database configuration
+### Database configuration
 
 ```
 dbInstanceCount=<number-of-database-instance>
