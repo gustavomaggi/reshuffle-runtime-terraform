@@ -56,6 +56,10 @@ resource "aws_ecs_task_definition" "ecsTask" {
     ],
     "environment": [
       {
+        "name": "DATABASE_URL",
+        "value": "${0 < var.dbInstanceCount ? "postgres://${aws_db_instance.primary[0].username}:${aws_db_instance.primary[0].password}@${aws_db_instance.primary[0].endpoint}/${aws_db_instance.primary[0].name}" : ""}"
+      },
+      {
         "name": "NODE_ENV",
         "value": "production"
       },

@@ -61,6 +61,38 @@ variable "containerPort" {
   description = "Port exposed from the ECS task container"
 }
 
+# Database settings
+
+variable "dbAllocatedGB" {
+  type        = number
+  default     = 10
+  description = "Stroage to allocate (GB)"
+}
+
+variable "dbAllocatedMaxGB" {
+  type        = number
+  default     = 100
+  description = "Max storage scaling (GB)"
+}
+
+variable "dbBackupRetentionDays" {
+  type        = number
+  default     = 14
+  description = "Number of days to retain backups for (0 - 35)"
+}
+
+variable "dbInstanceClass" {
+  type        = string
+  default     = "db.t3.micro"
+  description = "Replica instance type"
+}
+
+variable "dbInstanceCount" {
+  type        = number
+  default     = 0
+  description = "Number of instances (primary + replicas)"
+}
+
 # Locals
 
 locals {

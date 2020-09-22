@@ -8,6 +8,9 @@ an HTTPS load-balancer to access the service. It assumes nothing about your
 account and provisions the required network settings and IAM roles required
 for the service to run.
 
+If specified, the script will setup PostgreSQL RDS instances to manage state
+for the relevant connectors.
+
 ## Prerequisits
 
 1. AWS Account
@@ -34,7 +37,10 @@ will get you one for free)
 
 ## <a name="#vars"></a>Configuration in terraform.tfvars
 
-Create a Terraform variables file `terraform.tfvars` with the following:
+The Terraform variables file `terraform.tfvars` is used to configure your
+installation.
+
+### Basic configuration
 
 ```
 domain="example.com"
@@ -45,6 +51,8 @@ system="reshuffle"
 
 These parameters describe your system and AWS environment. If you are using
 AWS Route 53 as your DNS server on this domain, you can add
+
+## DNS configuration
 
 ```
 zoneid="<route-53-zone-id>"
@@ -58,6 +66,19 @@ values above, this will expose you Reshuffle runtime at
 If you are not using Route 53, leave out `zoneid`. Terraform will print out
 the load balancer domain name when it's done so you can configure the alias
 yourself in your DNS server.
+
+## Database configuration
+
+```
+dbInstanceCount=<number-of-database-instance>
+```
+
+To set up PostgreSQL RDS for your Reshuffle runtime, set the number of
+database instances to run. Any number above zero will result in the
+installation of a single primary instance and n-1 replicas. Other settings
+for the database, including instance type, are availabe in `settings.tf`.
+
+### Reshuffle Studio configuration
 
 Finally, add the following parameters with the values received from your
 Reshuffle contact:

@@ -75,3 +75,25 @@ resource "aws_security_group" "sgecs" {
     security_groups = [aws_security_group.sglb.id]
   }
 }
+
+resource "aws_security_group" "sgdb" {
+  count       = 0 < var.dbInstanceCount ? 1 : 0
+  name        = "reshuffle-${var.system}-sgdb"
+  description = "Database group"
+  vpc_id      = aws_vpc.main.id
+  tags        = local.defaultTags
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port       = 5432
+    to_port         = 5432
+    protocol        = "tcp"
+    security_groups = [aws_security_group.sgecs.id]
+  }
+}
