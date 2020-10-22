@@ -29,7 +29,7 @@ will get you one for free)
 
 1. Run `terraform init`
 
-1. Run `terraform deploy`
+1. Run `terraform apply`
 
 1. Wait 30 seconds or so for the containers to spin up
 

@@ -68,20 +68,24 @@ resource "aws_ecs_task_definition" "ecsTask" {
         "value": "${var.containerPort}"
       },
       {
-        "name": "STUDIO_AUTH_BASE_URL",
-        "value": "${var.studioAuthBaseURL}"
-      },
-      {
-        "name": "STUDIO_BASE_URL",
-        "value": "${var.studioBaseURL}"
-      },
-      {
         "name": "STUDIO_CLIENT_ID",
         "value": "${var.studioClientID}"
       },
       {
         "name": "STUDIO_CLIENT_SECRET",
         "value": "${var.studioClientSecret}"
+      },
+      {
+        "name": "CLIENT_USERNAME",
+        "value": "${var.studioClientUsername}"
+      },
+      {
+        "name": "CLIENT_PASSWORD",
+        "value": "${var.studioClientPassword}"
+      },
+      {
+        "name": "STUDIO_BASE_URL",
+        "value": "${var.studioBaseURL}"
       }
     ],
     "logConfiguration": {

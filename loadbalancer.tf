@@ -24,7 +24,7 @@ resource "aws_lb_target_group" "lbTargetGroup" {
   }
 
   health_check {
-    path                = "/"
+    path                = "/--health"
     healthy_threshold   = 2
     unhealthy_threshold = 5
     interval            = 5

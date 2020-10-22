@@ -4,16 +4,19 @@ variable "domain" {}
 variable "profile" {}
 variable "region" {}
 variable "system" {}
-variable "studioAuthBaseURL" {}
-variable "studioBaseURL" {}
-variable "studioClientID" {}
-variable "studioClientSecret" {}
+variable "containerImage" {}
 
 variable "zoneid" {
   type        = string
   default     = ""
   description = "Route 53 zone id"
 }
+
+variable "studioClientID" {}
+variable "studioClientSecret" {}
+variable "studioClientUsername" {}
+variable "studioClientPassword" {}
+variable "studioBaseURL" {}
 
 # General settings
 
@@ -49,15 +52,9 @@ variable "cotainerCount" {
   description = "Number of scale-out ECS task containers"
 }
 
-variable "containerImage" {
-  type        = string
-  default     = "docker.io/avnerbraverman/reshuffle"
-  description = "URL for ECS task contaner image"
-}
-
 variable "containerPort" {
   type        = number
-  default     = 4141
+  default     = 8000
   description = "Port exposed from the ECS task container"
 }
 
