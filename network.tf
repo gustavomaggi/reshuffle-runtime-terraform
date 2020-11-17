@@ -1,7 +1,12 @@
 resource "aws_vpc" "main" {
   enable_dns_hostnames = true
   cidr_block           = var.vpcCidrBlock
-  tags                 = local.defaultTags
+  tags                 = merge(
+    local.defaultTags,
+    map(
+        "Name", "reshuffle-${var.system}-vpc"
+    )
+  )
 }
 
 resource "aws_subnet" "subnet" {
