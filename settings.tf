@@ -12,6 +12,12 @@ variable "zoneid" {
   description = "Route 53 zone id"
 }
 
+variable "config" {
+  type        = string
+  default     = ""
+  description = "CONFIG env var"
+}
+
 variable "studioClientID" {}
 variable "studioClientSecret" {}
 variable "studioClientUsername" {}
@@ -56,6 +62,12 @@ variable "containerPort" {
   type        = number
   default     = 8000
   description = "Port exposed from the ECS task container"
+}
+
+variable "nodeEnv" {
+  type        = string
+  default     = "production"
+  description = "NodeJS execution environment"
 }
 
 # Database settings
