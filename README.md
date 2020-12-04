@@ -84,10 +84,11 @@ Finally, add the following parameters with the values received from your
 Reshuffle contact:
 
 ```
-studioAuthBaseURL="..."
-studioBaseURL="..."
-studioClientID="..."
-studioClientSecret="..."
+reshuffleClientID="..."
+reshuffleClientSecret="..."
+reshuffleUsername="..."
+reshufflePassword="..."
+reshuffleStudioBaseURL="..."
 ```
 
 Make sure not to commit `terraform.tfvars` to git. It may contain secrets

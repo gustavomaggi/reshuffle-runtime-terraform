@@ -18,11 +18,23 @@ variable "config" {
   description = "CONFIG env var"
 }
 
-variable "studioClientID" {}
-variable "studioClientSecret" {}
-variable "studioClientUsername" {}
-variable "studioClientPassword" {}
-variable "studioBaseURL" {}
+variable "reshuffleClientID" {}
+variable "reshuffleClientSecret" {}
+variable "reshuffleUsername" {}
+variable "reshufflePassword" {}
+variable "reshuffleStudioBaseURL" {}
+
+variable "reshuffleOAuthProvider" {
+  type        = string
+  default     = "Auth0"
+  description = "Authenticator type: Auth0 or Keycloak"
+}
+
+variable "reshuffleOAuthURL" {
+  type        = string
+  default     = "https://dev-ibeg-nq0.us.auth0.com/oauth/token"
+  description = "Authenticator URL"
+}
 
 # General settings
 

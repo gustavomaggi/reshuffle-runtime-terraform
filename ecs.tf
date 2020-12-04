@@ -72,24 +72,32 @@ resource "aws_ecs_task_definition" "ecsTask" {
         "value": "${var.containerPort}"
       },
       {
-        "name": "STUDIO_CLIENT_ID",
-        "value": "${var.studioClientID}"
+        "name": "RESHUFFLE_CLIENT_ID",
+        "value": "${var.reshuffleClientID}"
       },
       {
-        "name": "STUDIO_CLIENT_SECRET",
-        "value": "${var.studioClientSecret}"
+        "name": "RESHUFFLE_CLIENT_SECRET",
+        "value": "${var.reshuffleClientSecret}"
       },
       {
-        "name": "CLIENT_USERNAME",
-        "value": "${var.studioClientUsername}"
+        "name": "RESHUFFLE_USERNAME",
+        "value": "${var.reshuffleUsername}"
       },
       {
-        "name": "CLIENT_PASSWORD",
-        "value": "${var.studioClientPassword}"
+        "name": "RESHUFFLE_PASSWORD",
+        "value": "${var.reshufflePassword}"
       },
       {
-        "name": "STUDIO_BASE_URL",
-        "value": "${var.studioBaseURL}"
+        "name": "RESHUFFLE_STUDIO_BASE_URL",
+        "value": "${var.reshuffleStudioBaseURL}"
+      },
+      {
+        "name": "RESHUFFLE_OAUTH_PROVIDER",
+        "value": "${var.reshuffleOAuthProvider}"
+      },
+      {
+        "name": "RESHUFFLE_OAUTH_URL",
+        "value": "${var.reshuffleOAuthURL}"
       }
     ],
     "logConfiguration": {
